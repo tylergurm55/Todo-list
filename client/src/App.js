@@ -118,7 +118,6 @@ signUpUser = async (credentials) => {
             path="/login"
             render={(props) => <Login  {...props} handleLogin={this.loginUser} isSignedIn={isSignedIn}/>} 
           />
-
           <Route 
             path='/signup' 
             render = {(props) => <Signup {...props} handleSignUp={this.signUpUser} isSignedIn={isSignedIn} />}
