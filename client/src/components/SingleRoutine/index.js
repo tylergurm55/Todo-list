@@ -2,13 +2,23 @@ import React from 'react';
 
 
 const  SingleRoutine = (props) =>  {
-console.log(props)
+
+const renderRoutines = () => {
+  if(props.location.state){
+    return props.location.state.routines.map(routine => {
+      return (
+        <div key={routine.id}>{routine.description}</div>
+        
+      )
+    })
+  }
+}
     return (
       <div>
-       <p> {props.icecream.flavor} </p>
+       {renderRoutines()}
       </div>
     );
   }
 
 
-export default IceCreamSingle;
+export default SingleRoutine;
