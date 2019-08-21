@@ -2,10 +2,12 @@ import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import { getFamousPerson } from '../../services/apiService';
 
+
 class RoutineList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+
             data:[],
             routines:[]
         }
@@ -36,13 +38,16 @@ renderPerson= () => {
 }
 
 
+
     render() {
         return( 
         <div>
             <h1>Hello you're in Routine Me</h1>
         <ol>
+
             {this.renderPerson()}
             
+
         </ol>
             {/* <h2>{routines.name}</h2> */}
             <Link to='/dashboard/create'>Create New Routine</Link>
@@ -52,4 +57,6 @@ renderPerson= () => {
 }
 
 
+
 export default RoutineList
+

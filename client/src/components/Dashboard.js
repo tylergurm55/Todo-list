@@ -7,6 +7,7 @@ import RoutineList from './RoutineList';
 import ShowRoutine from './ShowRoutine';
 import SingleRoutine from './SingleRoutine';
 
+
 class Dashboard extends React.Component {
     constructor(props) {
         super(props)
@@ -25,6 +26,7 @@ class Dashboard extends React.Component {
          <SingleRoutine {...props}/>}/>
         <Route exact path="/dashboard/create" component={CreateRoutine} />
         <Route exact path="/dashboard/:id" component={ShowRoutine} />
+
         </Switch>
         </div>
         )
