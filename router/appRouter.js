@@ -2,7 +2,8 @@ const express = require  ('express')
 const appRouter = express.Router()
 const { passport } = require('../auth/auth')
 
-const { Person } = require('../models');
+const { Routine, User } = require('../models');
+
 
 /*appRouter.get('/', passport.authenticate('jwt', { session: false}),
   async(req, res) => {
@@ -13,23 +14,40 @@ const { Person } = require('../models');
 
   
   // GET all routine
-  appRouter.get('/persons', async (req, res) => {
-    res.send( await Person.findAll())
+  appRouter.get('/routine', async (req, res) => {
+    res.send( await Routine.findAll())
   
   })
   
-  // GET one ice routine
-  appRouter.get('/persons/:id', async (req, res) => {
-    let person = await Person.findByPk(req.params.id)
-    res.send(person)
+  // GET one routine
+  appRouter.get('/routine/:id', async (req, res) => {
+    let routine = await Routine.findByPk(req.params.id)
+    res.send(routine)
   
+  })
+
+  appRouter.get('/routine/users/famous', async (req, res) => {
+    try{
+      console.log('hello')
+      const users = await User.findAll({
+        where:{
+          isfamous: true
+        }, include: [Routine]
+  
+      })
+      res.send(users)
+
+    }catch(error){
+
+      throw error
+    }
   })
   
   // POST one routine
-  appRouter.post('/persons', async (req, res) => {
+  appRouter.post('/routine', async (req, res) => {
     try {
-      const person = await Person.create(req.body);
-      res.send(person)
+      const routine = await Routine.create(req.body);
+      res.send(routine)
   
     } catch(e) {
       console.log(e)
@@ -37,31 +55,31 @@ const { Person } = require('../models');
   
   })
   
-  // PUT(edit) one iroutine
-  appRouter.put('/persons/:id/edit', async (req, res) => {
-    let person = await Person.update(
+  // PUT(edit) one routine
+  appRouter.put('/routines/:id/edit', async (req, res) => {
+    let routine = await Routine.update(
       {
-        name: req.body.name,
-        descriptions: req.body.descriptions,
-        date: req.body.date
+        startTime: req.body.startTime,
+        endTime: req.body.endTime,
+        description: req.body.description
       },
         {
           where: {id: req.params.id
         }
       });
   
-    res.send(person)
+    res.send(routine)
   })
   
   // DELETE routine
-  appRouter.delete('/persons/:id/delete', async (req, res) => {
+  appRouter.delete('/routine/:id/delete', async (req, res) => {
     try {
-      const iceCream = await IceCream.findByPk(req.params.id)
-      if (iceCream) {
-          await iceCream.destroy()
+      const routine = await Routine.findByPk(req.params.id)
+      if (routine) {
+          await Routine.destroy()
           res.send('ok')
       } else{
-          let err = new Error('Ice crean Not Found')
+          let err = new Error('Routine Not Found')
           res.status(400).send(err.toString())
       } 
   } catch(error) {

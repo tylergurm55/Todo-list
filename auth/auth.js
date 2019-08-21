@@ -106,3 +106,17 @@ const authorized = (request, response, next) => {
 module.exports = {
   passport, jwtSign, authorized
 }
+
+
+
+// router.get('/users/famous', async(req,res) => {
+//   try {
+//     const users=await User.findAll({
+//       where: {isfamous: true},
+//       include: [Routine]
+//     })
+//     res.send(users)
+//   } catch (error) {
+    
+//   }
+// })

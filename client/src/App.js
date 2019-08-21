@@ -1,8 +1,6 @@
-// Packages and Libraries
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 //Components
-import Home from './components/Home'
 import Dashboard from './components/Dashboard'
 import Login from './components/Login'
 import Signup from './components/Signup'
@@ -113,6 +111,7 @@ signUpUser = async (credentials) => {
             path="/dashboard" 
             user={user}
             component={Dashboard} 
+          
           />
           
           <Route 
