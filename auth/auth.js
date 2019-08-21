@@ -109,14 +109,14 @@ module.exports = {
 
 
 
-router.get('/users/famous', async(req,res) => {
-  try {
-    const users=await User.findAll({
-      where: {isfamous: true},
-      include: [Routine]
-    })
-    res.send(users)
-  } catch (error) {
+// router.get('/users/famous', async(req,res) => {
+//   try {
+//     const users=await User.findAll({
+//       where: {isfamous: true},
+//       include: [Routine]
+//     })
+//     res.send(users)
+//   } catch (error) {
     
-  }
-})
+//   }
+// })
