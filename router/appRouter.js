@@ -1,0 +1,90 @@
+const express = require  ('express')
+const appRouter = express.Router()
+const { passport } = require('../auth/auth')
+
+const { Routine, User } = require('../models');
+
+
+/*appRouter.get('/', passport.authenticate('jwt', { session: false}),
+  async(req, res) => {
+      res.json({ user: req.user, message: 'authenticated'})
+  }
+);*/
+
+
+  
+  // GET all routine
+  appRouter.get('/routine', async (req, res) => {
+    res.send( await Routine.findAll())
+  
+  })
+  
+  // GET one routine
+  appRouter.get('/routine/:id', async (req, res) => {
+    let routine = await Routine.findByPk(req.params.id)
+    res.send(routine)
+  
+  })
+
+  appRouter.get('/routine/users/famous', async (req, res) => {
+    try{
+      console.log('hello')
+      const users = await User.findAll({
+        where:{
+          isfamous: true
+        }, include: [Routine]
+  
+      })
+      res.send(users)
+
+    }catch(error){
+
+      throw error
+    }
+  })
+  
+  // POST one routine
+  appRouter.post('/routine', async (req, res) => {
+    try {
+      const routine = await Routine.create(req.body);
+      res.send(routine)
+  
+    } catch(e) {
+      console.log(e)
+    }
+  
+  })
+  
+  // PUT(edit) one routine
+  appRouter.put('/routines/:id/edit', async (req, res) => {
+    let routine = await Routine.update(
+      {
+        startTime: req.body.startTime,
+        endTime: req.body.endTime,
+        description: req.body.description
+      },
+        {
+          where: {id: req.params.id
+        }
+      });
+  
+    res.send(routine)
+  })
+  
+  // DELETE routine
+  appRouter.delete('/routine/:id/delete', async (req, res) => {
+    try {
+      const routine = await Routine.findByPk(req.params.id)
+      if (routine) {
+          await Routine.destroy()
+          res.send('ok')
+      } else{
+          let err = new Error('Routine Not Found')
+          res.status(400).send(err.toString())
+      } 
+  } catch(error) {
+      throw error
+  }
+  });
+
+module.exports = appRouter
