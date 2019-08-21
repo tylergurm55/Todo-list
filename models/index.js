@@ -1,17 +1,15 @@
 const Sequelize = require('sequelize')
 const UserModel = require('./user')
-const PersonModel = require('./person')
+const RoutineModel = require('./Routine')
 const bcrypt = require('bcrypt')
 
 // connection to the database
 const db = new Sequelize({
-  database: "express_auth_db",
+  database: "routine_me",
   dialect: 'postgres'
 })
 
-// const db = new Sequelize(process.env.DATABASE_URL,{
-//   dialect: 'postgres'
-// })
+
 
 
 const User = UserModel(db, Sequelize);
@@ -26,11 +24,13 @@ User.beforeCreate(async (user, options) => {
     user.password = hashedPassword
 });
 
-const Person = PersonModel(db, Sequelize);
+const Routine = RoutineModel(db,Sequelize)
+User.hasMany(Routine)
+Routine.belongsTo(User)
 
 module.exports = {
   db,
   User,
-  Person
+  Routine
 }
 

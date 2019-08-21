@@ -13,7 +13,7 @@ class SignUpForm extends Component {
         }
     }
 
-    handleSummitForm = async (e) => {
+    handleSubmitForm = async (e) => {
         e.preventDefault()
         const { name, email, password } = this.state
         const  { handleSignUp } = this.props;
@@ -44,7 +44,7 @@ class SignUpForm extends Component {
 
         return(
             <div>
-                <form className = "" onSubmit={this.handleSummitForm}>
+                <form className = "" onSubmit={this.handleSubmitForm}>
                     <div>
                         <label>Name</label>
                         <input 

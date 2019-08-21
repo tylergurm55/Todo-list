@@ -1,8 +1,6 @@
-// Packages and Libraries
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 //Components
-import Home from './components/Home'
 import Dashboard from './components/Dashboard'
 import Login from './components/Login'
 import Signup from './components/Signup'
@@ -86,7 +84,6 @@ signUpUser = async (credentials) => {
       <div className="App">
   
         <nav>
-          <div><Link to="/">Home</Link></div>
           {
             isSignedIn &&
             <div><Link to="/dashboard">Dashboard</Link></div>
@@ -110,17 +107,22 @@ signUpUser = async (credentials) => {
         </nav>
   
         <main>
-          <Route exact path="/" component={Home} />
-          <ProtectedRoute path="/dashboard" 
-          user={user}
-          component={Dashboard} />
+          <ProtectedRoute 
+            path="/dashboard" 
+            user={user}
+            component={Dashboard} 
+          
+          />
+          
           <Route 
-          path="/login"
-           render={(props) => <Login  {...props} handleLogin={this.loginUser} isSignedIn={isSignedIn}/>} />
-            <Route 
+            path="/login"
+            render={(props) => <Login  {...props} handleLogin={this.loginUser} isSignedIn={isSignedIn}/>} 
+          />
+
+          <Route 
             path='/signup' 
             render = {(props) => <Signup {...props} handleSignUp={this.signUpUser} isSignedIn={isSignedIn} />}
-             />
+          />
         </main>
           
       </div>

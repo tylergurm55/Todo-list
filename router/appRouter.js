@@ -2,7 +2,7 @@ const express = require  ('express')
 const appRouter = express.Router()
 const { passport } = require('../auth/auth')
 
-const { Person } = require('../models');
+const {  } = require('../models');
 
 /*appRouter.get('/', passport.authenticate('jwt', { session: false}),
   async(req, res) => {
@@ -13,12 +13,12 @@ const { Person } = require('../models');
 
   
   // GET all routine
-  appRouter.get('/persons', async (req, res) => {
+  appRouter.get('/routine', async (req, res) => {
     res.send( await Person.findAll())
   
   })
   
-  // GET one ice routine
+  // GET one routine
   appRouter.get('/persons/:id', async (req, res) => {
     let person = await Person.findByPk(req.params.id)
     res.send(person)
@@ -26,7 +26,7 @@ const { Person } = require('../models');
   })
   
   // POST one routine
-  appRouter.post('/persons', async (req, res) => {
+  appRouter.post('/routine', async (req, res) => {
     try {
       const person = await Person.create(req.body);
       res.send(person)
@@ -37,7 +37,7 @@ const { Person } = require('../models');
   
   })
   
-  // PUT(edit) one iroutine
+  // PUT(edit) one routine
   appRouter.put('/persons/:id/edit', async (req, res) => {
     let person = await Person.update(
       {

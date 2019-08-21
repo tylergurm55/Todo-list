@@ -12,7 +12,7 @@ class  LoginForm extends React.Component {
         }
     }
 
-handleSunmitForm = async (event) => {
+handleSubmitForm = async (event) => {
     event.preventDefault()
     const { email, password } = this.state
     const { handleLogin } = this.props
@@ -56,7 +56,7 @@ handleTextInput = (event) => {
             <div>
                 <h1>Login</h1>
                 { errorMessage}
-                <form className="form" onSubmit={this.handleSunmitForm}>
+                <form className="form" onSubmit={this.handleSubmitForm}>
                     <div>
                         <label>Email</label>
                         <input

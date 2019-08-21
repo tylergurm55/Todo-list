@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken')
 const JWTStrategy = require('passport-jwt').Strategy
 const ExtractJWT = require('passport-jwt').ExtractJwt
 
-const SECRET = 'suoer long string'
+
 
 const jwtSign = (payload) =>{
     return jwt.sign(payload, process.env.SECRET)
@@ -106,3 +106,17 @@ const authorized = (request, response, next) => {
 module.exports = {
   passport, jwtSign, authorized
 }
+
+
+
+router.get('/users/famous', async(req,res) => {
+  try {
+    const users=await User.findAll({
+      where: {isfamous: true},
+      include: [Routine]
+    })
+    res.send(users)
+  } catch (error) {
+    
+  }
+})

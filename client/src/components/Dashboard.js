@@ -6,6 +6,10 @@ function Dashboard(props) {
     return( 
     <div>
         <h1>{user.name &&  `Welcome back ${user.name}`}</h1>
+        <div>
+            
+            
+        </div>
     </div>
     )
 }
