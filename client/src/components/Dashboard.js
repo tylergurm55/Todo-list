@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom';
 // import { userInfo } from 'os';
-import RoutineMe from './RoutineMe'
+import RoutineMe from './RoutineMe';
 import CreateRoutine from './CreateRoutine'
 import RoutineList from './RoutineList';
 import ShowRoutine from './ShowRoutine';

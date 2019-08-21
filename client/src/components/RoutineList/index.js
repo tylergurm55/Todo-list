@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import { getFamousPerson } from '../../services/apiService';
@@ -9,7 +7,7 @@ class RoutineList extends React.Component {
         super(props)
         this.state = {
             data:[],
-            routines: []
+            routines:[]
         }
     }
 
@@ -55,4 +53,3 @@ renderPerson= () => {
 
 
 export default RoutineList
->>>>>>> Stashed changes

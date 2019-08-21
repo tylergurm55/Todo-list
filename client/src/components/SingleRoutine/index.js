@@ -8,7 +8,6 @@ const renderRoutines = () => {
     return props.location.state.routines.map(routine => {
       return (
         <div key={routine.id}>{routine.description}</div>
-        
       )
     })
   }

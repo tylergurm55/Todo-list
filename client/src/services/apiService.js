@@ -46,7 +46,6 @@ export const getProfile = async ()=> {
 
     } catch(e) {
         throw e
-
     }
 }
 
