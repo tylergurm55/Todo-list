@@ -45,7 +45,7 @@ handleTextInput = (event) => {
         if(showError) {
             errorMessage = (
                 <div className="errorMessage">
-                    <span>An error occured, please tryagain</span>
+                    <span>An error occured, please try again</span>
                 </div>
             )
         }
