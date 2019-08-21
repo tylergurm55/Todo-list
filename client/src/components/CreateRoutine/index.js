@@ -27,7 +27,7 @@ class CreateRoutine extends React.Component {
                 <div className="submit"><input type = "submit" ></input></div>
             </div>
         );
-    }
+    };
 }
 
 export default CreateRoutine
