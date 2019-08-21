@@ -46,8 +46,19 @@ export const getProfile = async ()=> {
 
     } catch(e) {
         throw e
-
     }
 }
 
+export const getFamousPerson = async ()=> {
+    try {
+    
+        const response = await apiClient.get('/app/routine/users/famous')
+        // const {user} = response.data
 
+        // return user
+        console.log(response)
+        return response.data
+    } catch(e){
+        throw e
+    }
+}
