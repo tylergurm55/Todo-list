@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 
-class RoutineMe extends React.Component {
+class RoutineList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -14,9 +14,9 @@ class RoutineMe extends React.Component {
         <div>
             <h1>Hello you're in Routine Me</h1>
         <ol>
-            <li>Tom Brady</li>
-            <li>LeBron James</li>
-            <li>Rihanna</li>
+            <li><Link to='/dashboard/:id'>Tom Brady</Link></li>
+            <li><Link to='/dashboard/:id'>LeBron James</Link></li>
+            <li><Link to='/dashboard/:id'>Rihanna</Link></li>
         </ol>
             {/* <h2>{routines.name}</h2> */}
             <Link to='/dashboard/create'>Create New Routine</Link>
@@ -26,4 +26,4 @@ class RoutineMe extends React.Component {
 }
 
 
-export default RoutineMe
+export default RoutineList
