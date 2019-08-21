@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt')
 
 // connection to the database
 const db = new Sequelize({
-  database: "express_auth_db",
+  database: "express",
   dialect: 'postgres'
 })
 
