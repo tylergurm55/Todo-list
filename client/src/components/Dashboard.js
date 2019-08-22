@@ -4,8 +4,8 @@ import { Route, Switch } from 'react-router-dom';
 
 import CreateRoutine from './CreateRoutine'
 import RoutineList from './RoutineList';
-import ShowRoutine from './ShowRoutine';
 import SingleRoutine from './SingleRoutine';
+import UpdateRoutine from './UpdateRoutine';
 
 
 
@@ -26,7 +26,7 @@ class Dashboard extends React.Component {
                     <Route exact path="/dashboard/" component={RoutineList} />
                     <Route exact path='/dashboard/routine/:id' render={(props)=> <SingleRoutine {...props}/>}/>
                     <Route exact path="/dashboard/create" render={(props) => <CreateRoutine {...props} user={user} />} />
-                    <Route exact path="/dashboard/:id" component={ShowRoutine} />
+                    <Route exact path='/dashboard/routine/:routine_id/update' render={(props) => <UpdateRoutine {...props}/>}/>
                 </Switch>
             </div>
         )

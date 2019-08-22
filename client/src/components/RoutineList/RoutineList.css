@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Fontdiner+Swanky&display=swap');
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    padding: 20px;
+    font-family: 'Fontdiner Swanky', cursive;
+    font-size: 20px;
+    border: 3px red solid;
+    background-image: linear-gradient(to right top, #b6fb00, #90d51e, #6eaf25, #518a26, #386722);
+}
+
+@media only screen and (max-width: 550px) {
+    .title-container{
+      width: 520px;
+    }
+  }

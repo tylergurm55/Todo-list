@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import { getFamousPerson } from '../../services/apiService';
 import { getNormalPerson } from '../../services/apiService';
-
+import './RoutineList.css';
 
 class RoutineList extends React.Component {
     constructor(props) {
