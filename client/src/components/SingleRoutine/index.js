@@ -7,8 +7,7 @@ const renderRoutines = () => {
   if(props.location.state){
     return props.location.state.routines.map(routine => {
       return (
-        <div key={routine.id}>{routine.description}</div>
-        
+        <div key={routine.id}>{routine.startTime} - {routine.endTime} : {routine.description}</div>
       )
     })
   }
