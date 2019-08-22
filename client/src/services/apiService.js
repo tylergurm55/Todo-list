@@ -37,10 +37,23 @@ export const signUp = async (data) => {
     }
 }
 
+export const createRoutine = async (data) => {
+    try {
+        const response = await apiClient.post('/app/routine', data)
+        const { user } = response.data
+        return user
+      
+    } catch(e) {
+        throw e
+    }
+}
+
+
 export const getProfile = async ()=> {
     try {
         const response = await apiClient.get('/app/profile')
         const {user} = response.data
+        console.log(getProfile)
 
         return user
 
@@ -54,6 +67,7 @@ export const getFamousPerson = async ()=> {
     
         const response = await apiClient.get('/app/routine/users/famous')
         // const {user} = response.data
+        console.log(getFamousPerson)
 
         // return user
         console.log(response)
@@ -62,3 +76,22 @@ export const getFamousPerson = async ()=> {
         throw e
     }
 }
+
+export const getNormalPerson = async (id)=> {
+    try {
+    
+        const response = await apiClient.get(`/app/routine/users/${id}`)
+        const {user} = response.data
+        console.log(this.state)
+        console.log(this.props)
+        console.log(user)
+        // return user
+        
+        console.log(response)
+
+        return response.data
+    } catch(e){
+        throw e
+    }
+}
+

@@ -5,11 +5,11 @@ const { passport } = require('../auth/auth')
 const { Routine, User } = require('../models');
 
 
-/*appRouter.get('/', passport.authenticate('jwt', { session: false}),
+appRouter.get('/profile', passport.authenticate('jwt', { session: false}),
   async(req, res) => {
       res.json({ user: req.user, message: 'authenticated'})
   }
-);*/
+);
 
 
   
@@ -30,9 +30,9 @@ const { Routine, User } = require('../models');
     try{
       console.log('hello')
       const users = await User.findAll({
-        where:{
-          isfamous: true
-        }, include: [Routine]
+        include: [{
+          model: Routine
+        }]
   
       })
       res.send(users)
@@ -52,6 +52,7 @@ const { Routine, User } = require('../models');
     } catch(e) {
       console.log(e)
     }
+    //// 
   
   })
   

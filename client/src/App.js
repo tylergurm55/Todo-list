@@ -30,9 +30,7 @@ class App extends React.Component {
           isSignedIn: authService.isAuthenticated(),
           user: fetchUser
         }
-
       })
-
     } catch(e) {
       throw e
     }
@@ -41,7 +39,7 @@ class App extends React.Component {
 loginUser = async (credentials) => {
   try {
     const user = await login(credentials)
-
+    debugger
     this.setState(state => {
       return {
         isSignedIn: true,
