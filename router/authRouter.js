@@ -2,8 +2,6 @@ const express = require('express')
 const authRouter = express.Router()
 const { passport , jwtSign} = require('../auth/auth.js') //import enhanced passport instance
 
-
-// matches '/auth/login' route
 authRouter.post('/login', (req, res, next) => {
   passport.authenticate('login', async (err, user, info) => {
     try {

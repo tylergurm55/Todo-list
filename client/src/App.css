@@ -1,6 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Lexend+Zetta&display=swap');
 .App {
   width: 1028px;
   margin: 0 auto;
+  color: white;
+  font-family: 'Lexend Zetta', sans-serif;
+}
+body {
+  background-color: #009EFA;
+  background-image: url("https://onaircode.com/wp-content/uploads/2017/11/Tesselation-Transition.jpg");
+  background-size: cover;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+.title-description {
+  display: flex;
+  justify-content: center;
+  font-size: 1.2em;
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+      transform: translateX(-100%);
+  }
+  100% {
+      transform: translateX(0);
+  }
 }
 
 .App-header {
@@ -55,16 +86,20 @@ nav {
   justify-content: space-between;
   font-weight: bold;
   padding: 10px;
+  
 }
 
 .nav-section {
   min-width: 250px;
   display: flex;
   justify-content: space-around;
+  
 }
 
 a {
   text-decoration: none;
+  border: white solid 2px;
+  padding: 4px;
 }
 
 .nav-section button {
@@ -73,10 +108,12 @@ a {
   padding: 0;
   text-decoration: none;
   font-size: inherit;
+  
+  
 }
 
 nav button, nav a {
-  color: blue;
+  color: white;
 }
 
 nav button:hover, nav a:hover {

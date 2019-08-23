@@ -15,15 +15,15 @@ const renderRoutines = () => {
   if(props.location.state){
     return props.location.state.routines.map(routine => {
       return (
-        <div>
+        <div className="single-routine">
           <div key={routine.id}>{routine.startTime} - {routine.endTime} : {routine.description}
           </div>
           <div>
-            <button onClick={()=> props.history.push('/dashboard/routine/:routine_id/update', {routineId: routine.id})}>Update</button>
+            <button className="update-button" onClick={()=> props.history.push('/dashboard/routine/:routine_id/update', {routineId: routine.id})}>Update</button>
           </div>
           <br />
           <div>
-            <button onClick={() => handleDelete(routine.id)}>Delete</ button>
+            <button className="delete-button" onClick={() => handleDelete(routine.id)}>Delete</ button>
           </div>
         </div>
       )

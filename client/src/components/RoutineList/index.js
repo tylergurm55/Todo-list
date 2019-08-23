@@ -3,7 +3,7 @@ import { Route, Link } from 'react-router-dom';
 import { getFamousPerson } from '../../services/apiService';
 import { getNormalPerson } from '../../services/apiService';
 import './RoutineList.css';
-import Axios from 'axios';
+
 
 class RoutineList extends React.Component {
     constructor(props) {
@@ -38,10 +38,10 @@ class RoutineList extends React.Component {
             return this.state.data.map(user =>{
                 
                 return (
-                    <li key={user.id}><Link to={{
+                    <h2 key={user.id}><Link className ="peoples-list" to={{
                         pathname:`/dashboard/routine/${user.id}`,
                         state:{routines:user.routines}
-                }}>{user.name}</Link></li>
+                }}>{user.name}</Link></h2>
                 )
             })
         }
@@ -67,12 +67,16 @@ class RoutineList extends React.Component {
     render() {
         return( 
         <div>
-            <h1>Hello you're in Routine Me</h1>
-        <ol>
-            {this.renderPerson()}
-        </ol>
-            {/* <h2>{routines.name}</h2> */}
-            <Link to='/dashboard/create'>Create New Routine</Link>
+            <h1>Welcome to your RoutineMe Dashboard</h1>
+                <div className="people-list">
+                    
+                        {this.renderPerson()}
+                    
+                </div>
+                <div className= 'button-div'>
+                    <Link className= "create-routine-button" to='/dashboard/create'>Create New Routine</Link>
+                </div>
+            
         </div>
         )
     }

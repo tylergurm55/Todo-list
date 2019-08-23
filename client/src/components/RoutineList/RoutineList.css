@@ -1,18 +1,38 @@
-@import url('https://fonts.googleapis.com/css?family=Fontdiner+Swanky&display=swap');
-
-.title-container {
+.peoples-list {
     display: flex;
-    flex-direction: column;
-    margin: 20px;
-    padding: 20px;
-    font-family: 'Fontdiner Swanky', cursive;
-    font-size: 20px;
-    border: 3px red solid;
-    background-image: linear-gradient(to right top, #b6fb00, #90d51e, #6eaf25, #518a26, #386722);
+    justify-content: center;
+    color: black;
+    border:none;
+    padding-left: 0px;
+    
 }
 
-@media only screen and (max-width: 550px) {
-    .title-container{
-      width: 520px;
+.peoples-list > ol {
+    padding-left: 0px;
+}
+
+
+
+  .create-routine-button {
+
+        background-color: black;
+        -moz-border-radius:28px;
+        -webkit-border-radius:28px;
+        border-radius:28px;
+        border:2px solid rgba(0, 0, 0, 0.856);
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:17px;
+        padding:16px 31px;
+        text-decoration:none;
+        /* text-shadow:0px 1px 0px #2f6627; */
     }
-  }
+ .button-div {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+ }
+
