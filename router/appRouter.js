@@ -57,18 +57,10 @@ appRouter.get('/profile', passport.authenticate('jwt', { session: false}),
   })
   
   // PUT(edit) one routine
-  appRouter.put('/routines/:id/edit', async (req, res) => {
-    let routine = await Routine.update(
-      {
-        startTime: req.body.startTime,
-        endTime: req.body.endTime,
-        description: req.body.description
-      },
-        {
-          where: {id: req.params.id
-        }
-      });
-  
+  appRouter.put('/routines/user/:user_id/update/:routine_id', async (req, res) => {
+    let routine = await Routine.findByPk(req.params.routine_id)
+
+    await routine.update(req.body)
     res.send(routine)
   })
   

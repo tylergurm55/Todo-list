@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Bigshot+One&display=swap');
+
+.schedule {
+    display: flex;
+    border: 2px solid blue;
+    flex-direction: column;
+    background-image: linear-gradient(to right bottom, #05452a, #156452, #2d837e, #4ea3aa, #76c3d6);  
+    margin: 8%;
+    padding: 10%;
+    font-family: 'Bigshot One', cursive;
+    font-size: 30px;
+}
+
+.time-period {
+    border: 2px solid green;
+    margin-bottom: 45px;
+    background-color: #B0A8B9;
+    padding: 10%;
+}
+
+@media only screen and (max-width: 400px) {
+    .time-period {
+        width: 300px;
+    }
+    
+    .schedule {
+        margin: 1%;
+        width: 380px;
+    }
+  }
