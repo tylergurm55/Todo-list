@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { updateRoutine } from '../../services/apiService'
 import Axios from 'axios';
+import './UpdateRoutine.css'
 
 
 class UpdateRoutine extends React.Component {
@@ -11,8 +12,6 @@ class UpdateRoutine extends React.Component {
         this.props = props
         this.state = {
             updated: false
-
-            
         }
     }
 

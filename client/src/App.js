@@ -90,10 +90,12 @@ signUpUser = async (credentials) => {
             !isSignedIn ? (
               <div><Link to="/login">Login</Link></div>
             ) : (
-              <button onClick= {this.signOutUser}>Sign Out</button>
+              <Link onClick= {this.signOutUser}>Sign Out</Link>
             )
           
           }
+
+          
 
           {!isSignedIn ? (
               <div><Link to="/signup">Sign up</Link></div>
@@ -101,7 +103,19 @@ signUpUser = async (credentials) => {
               null
             )
           }
+
         </nav>
+        <div>
+        {!isSignedIn ? (
+            <div>
+              <h2 className="title">Welcome to RoutineMe</h2>
+              <h4 className="title-description">Create Your own routines and compare them to other routines.</h4>
+            </div>
+          ) : (
+              null
+            )
+          }
+        </div>
   
         <main>
           <ProtectedRoute 

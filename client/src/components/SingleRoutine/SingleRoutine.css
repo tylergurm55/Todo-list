@@ -1,30 +1,21 @@
-@import url('https://fonts.googleapis.com/css?family=Bigshot+One&display=swap');
-
-.schedule {
+.single-routine {
     display: flex;
-    border: 2px solid blue;
-    flex-direction: column;
-    background-image: linear-gradient(to right bottom, #05452a, #156452, #2d837e, #4ea3aa, #76c3d6);  
-    margin: 8%;
-    padding: 10%;
-    font-family: 'Bigshot One', cursive;
+    justify-content: space-between;
+    margin-top: 50px;
     font-size: 30px;
+    padding: 20px;
+    background-color:rgb(0, 0, 0, .2);
 }
 
-.time-period {
-    border: 2px solid green;
-    margin-bottom: 45px;
-    background-color: #B0A8B9;
-    padding: 10%;
+.update-button {
+    margin-top: 30px;
+    font-size: 20px;
+    padding: 10px;
 }
-
-@media only screen and (max-width: 400px) {
-    .time-period {
-        width: 300px;
-    }
-    
-    .schedule {
-        margin: 1%;
-        width: 380px;
-    }
-  }
+.delete-button {
+    margin-top: 30px;
+    font-size: 20px;
+    background-color: gray;
+    padding: 10px;
+    color: white;
+}
