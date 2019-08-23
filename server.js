@@ -12,6 +12,8 @@ const { authorized} = require('./auth/auth')
 const passport = require('passport')
 
 
+
+
 // establishing the I/O port
 const PORT = process.env.PORT || 4567
 
@@ -53,6 +55,8 @@ if (process.env.NODE_ENV == "production") {
 app.use((err, req, res, next) => {
   res.status(500).json({ message: err.message})
 })
+
+app.use(express.static(path.join(__dirname, './client/build')));
 
 
 
