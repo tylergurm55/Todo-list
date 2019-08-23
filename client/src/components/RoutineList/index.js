@@ -2,7 +2,8 @@ import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import { getFamousPerson } from '../../services/apiService';
 import { getNormalPerson } from '../../services/apiService';
-
+import './RoutineList.css';
+import Axios from 'axios';
 
 class RoutineList extends React.Component {
     constructor(props) {
@@ -63,22 +64,12 @@ class RoutineList extends React.Component {
         }
     }
 
-
-
     render() {
         return( 
         <div>
             <h1>Hello you're in Routine Me</h1>
         <ol>
-
             {this.renderPerson()}
-
-            
-
-            
-            
-            
-
         </ol>
             {/* <h2>{routines.name}</h2> */}
             <Link to='/dashboard/create'>Create New Routine</Link>
@@ -86,8 +77,6 @@ class RoutineList extends React.Component {
         )
     }
 }
-
-
 
 export default RoutineList
 
