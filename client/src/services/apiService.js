@@ -72,6 +72,17 @@ export const updateRoutine = async (routineId, data) => {
     }
 }
 
+export const deleteRoutine = async (routineId, data) => {
+    try {
+        const response = await apiClient.delete(`/app/routine/${routineId}/delete`, data)
+    
+        return response;
+    } catch (e) {
+        throw e
+        
+    }
+}
+
 export const getProfile = async () => {
     try {
         const response = await apiClient.get('/app/profile')

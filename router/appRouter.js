@@ -67,9 +67,11 @@ appRouter.get('/profile', passport.authenticate('jwt', { session: false}),
   // DELETE routine
   appRouter.delete('/routine/:id/delete', async (req, res) => {
     try {
-      const routine = await Routine.findByPk(req.params.id)
+      const routine = await Routine.findByPk(req.params.id);
       if (routine) {
-          await Routine.destroy()
+          await routine.destroy();
+
+          console.log("This is my routine: ", routine);
           res.send('ok')
       } else{
           let err = new Error('Routine Not Found')
