@@ -66,6 +66,7 @@ body {
   border-radius: 3px;
   padding: 5px;
   display: block;
+  border: 1px solid rgb(8, 8, 8);
 }
 
 .form button {
@@ -122,8 +123,12 @@ nav button:hover, nav a:hover {
 
 nav button:visited, nav a:visited {
   background-color: #ccc;
+  cursor: pointer;
 }
 
 nav button:hover {
   cursor: pointer;
 }
+
+
+
