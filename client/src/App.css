@@ -6,16 +6,36 @@
   font-family: 'Lexend Zetta', sans-serif;
 }
 body {
-  background-color: #009EFA;
-  background-image: url("https://onaircode.com/wp-content/uploads/2017/11/Tesselation-Transition.jpg");
-  background-size: cover;
+  /* background-image: url("https://onaircode.com/wp-content/uploads/2017/11/Tesselation-Transition.jpg");
+  background-size: cover; */
+  width: 100%;
+  height: 100vh;
+  color: #fff;
+  background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, rgb(35, 183, 213));
+  background-size: 400% 400%;
+  position: relative;
+  animation: change 12s ease-in infinite;
+
+}
+
+@keyframes change {
+  0%{
+    background-position: 0 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0 50%;
+  }
 }
 
 .title {
   display: flex;
   justify-content: center;
-  font-size: 50px;
+  font-size: 52px;
   animation: 1s ease-out 0s 1 slideInFromLeft;
+  margin-top: 50px;
 }
 
 .title-description {
@@ -23,6 +43,7 @@ body {
   justify-content: center;
   font-size: 1.2em;
   animation: 1s ease-out 0s 1 slideInFromLeft;
+  
 }
 
 @keyframes slideInFromLeft {
@@ -34,7 +55,7 @@ body {
   }
 }
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -43,11 +64,11 @@ body {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
+} */
+/* 
 .App-link {
   color: #61dafb;
-}
+} */
 
 .login-form {
   padding: 15px;
@@ -86,32 +107,26 @@ nav {
   display: flex;
   justify-content: space-between;
   font-weight: bold;
-  padding: 10px;
+  padding: 20px;
+  margin-top: 15px;
   
 }
 
-.nav-section {
+/* .nav-section {
   min-width: 250px;
   display: flex;
   justify-content: space-around;
   
-}
+} */
 
 a {
   text-decoration: none;
   border: white solid 2px;
   padding: 4px;
+  
 }
 
-.nav-section button {
-  border: none;
-  font-weight: bold;
-  padding: 0;
-  text-decoration: none;
-  font-size: inherit;
-  
-  
-}
+
 
 nav button, nav a {
   color: white;

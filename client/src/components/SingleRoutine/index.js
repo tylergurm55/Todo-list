@@ -7,7 +7,7 @@ const  SingleRoutine = (props) =>  {
 
   const handleDelete = async (id) => {
     await deleteRoutine(id);
-    await props.history.push(`/dashboard/routine/${id}`)
+    await props.history.push(`/dashboard`)
   }
 
 const renderRoutines = () => {
