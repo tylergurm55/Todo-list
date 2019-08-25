@@ -1,18 +1,17 @@
 import React from 'react';
-import './CreateRoutine.css';
 import { Redirect } from 'react-router-dom';
-import { createRoutine } from '../../services/apiService'
-import './CreateRoutine.css'
+import { updateRoutine } from '../../services/apiService'
+import Axios from 'axios';
+import './UpdateRoutine.css'
 
-class CreateRoutine extends React.Component {
+
+class UpdateRoutine extends React.Component {
     constructor(props) {
         super(props)
 
         this.props = props
         this.state = {
-            created: false,
-            name: '',
-            userId: props.user.id
+            updated: false
         }
     }
 
@@ -29,19 +28,18 @@ class CreateRoutine extends React.Component {
     e.preventDefault()
     const { userId, name, startTime, endTime, description } = this.state
     const routine = { userId, name, startTime, endTime, description};
+    const id = this.props.location.state.routineId
+    await updateRoutine(id, routine);
 
-    await createRoutine(routine);
-
-    this.setState({created: true})
+    this.setState({updated: true})
   }
 
 
-
     render() {
-        if (this.state.created){return <Redirect to="/dashboard"></Redirect>}
+        if (this.state.updated){return <Redirect to="/dashboard"></Redirect>}
         return (
-            <div className="routines">
-                    <h1>Create Your Routine:</h1>
+            <div className="update-routines">
+                <h1>Update Your Routine:</h1>
                     <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
                         <label for="startTime">Start Time (am/pm):</label>
                         <input name="startTime" type="text" />
@@ -51,9 +49,10 @@ class CreateRoutine extends React.Component {
                         <input name="description" type="text" />
                         <div className="submit"><input type = "submit" /></div> 
                     </form>
+                 
             </div>
         );
     };
 }
 
-export default CreateRoutine
+export default UpdateRoutine

@@ -5,11 +5,11 @@ const { passport } = require('../auth/auth')
 const { Routine, User } = require('../models');
 
 
-/*appRouter.get('/', passport.authenticate('jwt', { session: false}),
+appRouter.get('/profile', passport.authenticate('jwt', { session: false}),
   async(req, res) => {
       res.json({ user: req.user, message: 'authenticated'})
   }
-);*/
+);
 
 
   
@@ -30,9 +30,9 @@ const { Routine, User } = require('../models');
     try{
       console.log('hello')
       const users = await User.findAll({
-        where:{
-          isfamous: true
-        }, include: [Routine]
+        include: [{
+          model: Routine
+        }]
   
       })
       res.send(users)
@@ -52,31 +52,26 @@ const { Routine, User } = require('../models');
     } catch(e) {
       console.log(e)
     }
+    //// 
   
   })
   
   // PUT(edit) one routine
-  appRouter.put('/routines/:id/edit', async (req, res) => {
-    let routine = await Routine.update(
-      {
-        startTime: req.body.startTime,
-        endTime: req.body.endTime,
-        description: req.body.description
-      },
-        {
-          where: {id: req.params.id
-        }
-      });
-  
+  appRouter.put('/routines/user/:user_id/update/:routine_id', async (req, res) => {
+    let routine = await Routine.findByPk(req.params.routine_id)
+
+    await routine.update(req.body)
     res.send(routine)
   })
   
   // DELETE routine
   appRouter.delete('/routine/:id/delete', async (req, res) => {
     try {
-      const routine = await Routine.findByPk(req.params.id)
+      const routine = await Routine.findByPk(req.params.id);
       if (routine) {
-          await Routine.destroy()
+          await routine.destroy();
+
+          console.log("This is my routine: ", routine);
           res.send('ok')
       } else{
           let err = new Error('Routine Not Found')

@@ -30,9 +30,7 @@ class App extends React.Component {
           isSignedIn: authService.isAuthenticated(),
           user: fetchUser
         }
-
       })
-
     } catch(e) {
       throw e
     }
@@ -41,7 +39,6 @@ class App extends React.Component {
 loginUser = async (credentials) => {
   try {
     const user = await login(credentials)
-
     this.setState(state => {
       return {
         isSignedIn: true,
@@ -93,10 +90,12 @@ signUpUser = async (credentials) => {
             !isSignedIn ? (
               <div><Link to="/login">Login</Link></div>
             ) : (
-              <button onClick= {this.signOutUser}>Sign Out</button>
+              <Link onClick= {this.signOutUser}>Sign Out</Link>
             )
           
           }
+
+          
 
           {!isSignedIn ? (
               <div><Link to="/signup">Sign up</Link></div>
@@ -104,7 +103,20 @@ signUpUser = async (credentials) => {
               null
             )
           }
+
         </nav>
+        <div>
+        {!isSignedIn ? (
+            <div>
+              <h2 className="title">Welcome to RoutineMe</h2>
+              <br></br>
+              <h4 className="title-description">Create your own daily routines and compare them to others</h4>
+            </div>
+          ) : (
+              null
+            )
+          }
+        </div>
   
         <main>
           <ProtectedRoute 
