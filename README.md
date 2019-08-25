@@ -15,4 +15,4 @@ This is a full-stack CRUD app with login and sign up functionality using React a
 - React, Node.js, JavaScript, HTML, CSS/Flexbox
 
 ### Demo: 
-![](https://j.gifs.com/k8DKkK.gif)
+![app](https://j.gifs.com/k8DKkK.gif)
