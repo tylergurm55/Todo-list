@@ -1,9 +1,12 @@
 .peoples-list {
     display: flex;
     justify-content: center;
+    align-items: column;
     color: black;
     border:none;
     padding-left: 0px;
+    margin-top: 80px;
+
     
 }
 
@@ -26,8 +29,9 @@
         font-family:Arial;
         font-size:17px;
         padding:16px 31px;
+        margin: 20px;
         text-decoration:none;
-        /* text-shadow:0px 1px 0px #2f6627; */
+        
     }
  .button-div {
     display: flex;
