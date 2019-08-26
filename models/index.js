@@ -4,9 +4,13 @@ const RoutineModel = require('./Routine')
 const bcrypt = require('bcrypt')
 
 // connection to the database
-const db = new Sequelize({
-  database: "express_auth_db",
-  dialect: 'postgres'
+const db = new Sequelize((process.env.DATABASE_URL || 'postgres://localhost:5432/routine_me'), {
+  database: "routine_me",
+  dialect: 'postgres',
+  define: {
+    underscored: true,
+    returning: true
+  }
 })
 
 
