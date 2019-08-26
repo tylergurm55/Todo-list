@@ -1,5 +1,5 @@
 # Routine-me
-https://routineme1.herokuapp.com/
+http://routine-me.surge.sh/
 
 ## Routine-Me
 
